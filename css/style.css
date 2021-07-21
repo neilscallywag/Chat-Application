@@ -212,7 +212,7 @@ body {
 .chat .alert-yellow { color: #8a6d3b; background: #faebcc }
 .chat .alert-green  { color: #3c763d; background: #d2e2cc }
 .chat .alert-blue   { color: #60709c; background: #cee1ea }
-.chat .alert-red,.alert-yellow,.alert-green,.alert-blue .alert-icon   { position: absolute; top: 50%; left: 8px; font-size: 30px; height: 30px; transform: translateY(-50%); -webkit-transform: translateY(-50%); -moz-transform: translateY(-50%); -ms-transform: translateY(-50%); -o-transform: translateY(-50%); width: 30px; color:inherit; }
+.chat .alert-icon   { position: absolute; top: 50%; left: 8px; font-size: 30px; height: 30px; transform: translateY(-50%); -webkit-transform: translateY(-50%); -moz-transform: translateY(-50%); -ms-transform: translateY(-50%); -o-transform: translateY(-50%); width: 30px; color:inherit; }
 
 @media screen and (max-width: 600px) {
 	.navigation {
