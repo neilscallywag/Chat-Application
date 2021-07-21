@@ -49,6 +49,9 @@ body {
 .navigation .wrapper .navbar-left a:hover {
 	transform: rotate(45deg);
 }
+.navigation .wrapper .navbar-center a:hover {
+	transform: rotate(45deg);
+}
 
 .navigation .wrapper .navbar li {
 	list-style: none;
@@ -97,8 +100,14 @@ body {
 .navigation .wrapper .navbar-left {
 	float: left;
 }
-
+.navigation .wrapper .navbar-center {
+	text-align:center;
+}
 .navigation .wrapper .navbar-left li {
+	height: 10vh;
+	margin: 10px 10px 10px 10px;
+}
+.navigation .wrapper .navbar-center li {
 	height: 10vh;
 	margin: 10px 10px 10px 10px;
 }
