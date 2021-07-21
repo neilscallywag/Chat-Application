@@ -45,7 +45,7 @@ if(isset($_POST['register'])){
 		$return = '<div class="alert-red"><i class="alert-icon fa fa-exclamation-circle"></i>Please enter a valid email!</div>';
 	}
     else {
-    $passwordHash = password_hash($password, PASSWORD_BCRYPT, array("cost" => 12));
+    $passwordHash = md5(sha1(trim($password)));
     $sql = "INSERT INTO users (username, password, email) VALUES (:username, :password, :email)";
     $stmt = $x->prepare($sql);
     $stmt->bindValue(':username', $username);
@@ -93,7 +93,7 @@ if(isset($_POST['register'])){
                <div class="navbar navbar-right">
                   <ul>
                      <li><a class="btn btn-empty" href="register.php">Sign up</a></li>
-                     <li><a class="btn btn-full" href="#">Log in</a></li>
+                     <li><a class="btn btn-full" href="login.php">Log in</a></li>
                   </ul>
                </div>
             </div>

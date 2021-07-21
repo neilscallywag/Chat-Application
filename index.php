@@ -32,7 +32,7 @@ include("functions.php");
                <div class="navbar navbar-right">
                   <ul>
                      <li><a class="btn btn-empty" href="register.php">Sign up</a></li>
-                     <li><a class="btn btn-full" href="#">Log in</a></li>
+                     <li><a class="btn btn-full" href="login.php">Log in</a></li>
                   </ul>
                </div>
             </div>
