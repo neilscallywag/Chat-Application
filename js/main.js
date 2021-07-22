@@ -2,8 +2,7 @@ document.addEventListener(
 	'DOMContentLoaded',
 	function()
 	{
-		const ele = document
-			.getElementById('chat');
+		const a = document.getElementById('chat');
 		a.style.cursor = 'grab';
 		let p = {
 			top: 0,
@@ -73,3 +72,6 @@ document.addEventListener(
 			'mousedown',
 			mouseDownHandler);
 	});
+	
+
+	

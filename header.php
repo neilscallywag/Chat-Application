@@ -24,7 +24,7 @@ if(!isset($_SESSION["uid"])){
             <div class="wrapper">
                <div class="navbar navbar-left">
                   <ul>
-                     <li><a href="#" data-target="">Updates</a></li>
+                     <li><a href="index.php" data-target="">Home</a></li>
                      <li><a href="#" data-target="">Credits</a></li>
                      <li><a href="#" data-target="">Forums</a></li>
                      <li><a href="#" data-target="">Rules</a></li>
@@ -46,7 +46,7 @@ if(!isset($_SESSION["uid"])){
       <meta charset="UTF-8">
       <title><?php echo($_SESSION["uid"]); ?></title>
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900">
-	  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
       <link rel="stylesheet" href="css/style.css">
       <link rel="stylesheet" href="css/normalize.css">
       <link rel="stylesheet" href="css/skeleton.css">
@@ -60,7 +60,7 @@ if(!isset($_SESSION["uid"])){
             <div class="wrapper">
                <div class="navbar navbar-center">
                   <ul>
-                     <li><a href="#" data-target="">Updates</a></li>
+                     <li><a href="index.php" data-target="">Chatroom</a></li>
                      <li><a href="#" data-target="">Credits</a></li>
                      <li><a href="Chatroom.php" data-target="">Message</a></li>
                      <li><a href="logout.php" data-target="">Logout</a></li>

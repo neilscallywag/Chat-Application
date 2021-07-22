@@ -266,7 +266,33 @@ body {
 	width: 30px;
 	color: inherit;
 }
+.input {
+	box-sizing: border-box;
+  flex-basis: 4rem;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  padding: 0 0.5rem 0 1.5rem;
+  background:white;
+	
+	
+}
+.input i {
+font-size: 3vh;
+  margin-right: 1rem;
+  color: #666;
+  cursor: pointer;
+  transition: color 200ms;
+      padding-left: 1rem;
+	
+}
 
+.input i:hover {
+	color: #333;
+	
+}
+
+.input input {margin-bottom:0rem !important; border:none !important;}
 @media screen and (max-width: 600px) {
 	.navigation {
 		display: none;
@@ -306,9 +332,7 @@ textarea {
 	font-size: 1.000em;
 	font-weight: 400;
 	letter-spacing: 1px;
-	margin: 0em 0 1.875em 0;
 	padding: 0 0 0.875em 0;
-	text-transform: uppercase;
 	width: 100%;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -348,19 +372,19 @@ textarea {
 }
 
 ::-webkit-input-placeholder {
-	color: #fff;
+	color: #000;
 }
 
 :-moz-placeholder {
-	color: #fff;
+	color: #000;
 	opacity: 1;
 }
 
 ::-moz-placeholder {
-	color: #fff;
+	color: #000;
 	opacity: 1;
 }
 
 :-ms-input-placeholder {
-	color: #fff;
+	color: #000;
 }

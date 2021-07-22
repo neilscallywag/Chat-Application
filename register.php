@@ -84,7 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
                <p>
                   Register an account in order to use the chatroom
                </p>
-               <div class="chat">
+               <div id="chat" class="chat">
                 
 				<?php echo ($return); ?>
 				<form action="register.php" method="post">

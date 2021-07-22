@@ -37,6 +37,7 @@ if(isset($_POST['login'])){
     $sid = $stmt->fetch(PDO::FETCH_ASSOC);
 	if(!empty($sid['uid'])){
 	         $_SESSION["uid"] = $sid['uid'];
+			 $_SESSION["username"] = $sid['username'];
 			$return= '<div class="alert-yellow"><i class="alert-icon fa fa-exclamation-circle"></i>Welcome: '.$sid['username'].'! You will be redirected in 5 seconds.</div>';
 				header( "refresh:5;url=index.php" );
 	}
@@ -66,7 +67,7 @@ else { $return = '<div class="alert-red"><i class="alert-icon fa fa-exclamation-
             <div class="section welcome">
                <h1>Login</h1>
                
-               <div class="chat">
+               <div id="chat" class="chat">
                 
 				<?php echo($return); ?>
 				<form action="login.php" method="post">
