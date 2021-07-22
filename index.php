@@ -3,8 +3,14 @@
 include("header.php");
 
 ?>
+<?php 
+$sql = "select * from chat ORDER BY mid ASC;";
+			$stmt = $x->prepare($sql);
+   
+    $stmt->execute();
+    $result = $stmt->fetchall();
 
-
+?>
 
          <div class="container">
             <div class="section welcome">
@@ -12,27 +18,60 @@ include("header.php");
                <p>
                   Simple Chat application
                </p>
-               <div class="chat">
-                  <div data-from="{from}" data-id="{messageId}">
-                     <div class="messagecontainer" style="--user-color: #234A65">
-                        <span class="meta">
-                       
-                        <span class="user">Neil</span>
-                        <i class="metaBG"></i>
-                        </span>
-                        <span class="message">Hello world</span>
+               <div id="chat" class="chat">
+			   
+			   <?php
+			   foreach($result as $res) { 
+			   if(isset($_SESSION["uid"])) { 
+			   if($_SESSION["uid"] == $res['uid']){
+				   ?>
+				   
+				
+			   
+                  <div data-from="<?php echo($res['username']); ?>" data-id="<?php echo($res['mid']); ?>">
+                     <div class="messagecontainer self" style="--user-color: #234A65">	
+                        
+                        <span class="message"><?php echo($res['message']); ?></span>
                      </div>
                   </div>
-                  <div data-from="{from}" data-id="{messageId}">
+				  
+				  
+				  
+				  
+				  
+				  
+			   <?php  } else { ?> 
+			   
+			   
+			   <div data-from="<?php echo($res['username']); ?>" data-id="<?php echo($res['mid']); ?>">
                      <div class="messagecontainer" style="--user-color: #F4A651">
                         <span class="meta">
                         
-                        <span class="user">some_user_not</span>
+                        <span class="user"><?php echo($res['username']); ?></span>
                         <i class="metaBG"></i>
                         </span>
-                        <span class="message">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas porta malesuada ante vitae ultricies. Suspendisse sagittis, quam vitae ultricies ornare, elit nibh fermentum nisi, id feugiat libero turpis a lacus.</span>
+                        <span class="message"><?php echo($res['message']); ?></span>
                      </div>
-                  </div>
+			   </div>
+
+
+			   <?php } } else {	 ?>
+			   
+			   
+                  <div data-from="<?php echo($res['username']); ?>" data-id="<?php echo($res['mid']); ?>">
+                     <div class="messagecontainer" style="--user-color: #F4A651">
+                        <span class="meta">
+                        
+                        <span class="user"><?php echo($res['username']); ?></span>
+                        <i class="metaBG"></i>
+                        </span>
+                        <span class="message"><?php echo($res['message']); ?></span>
+                     </div>
+			   </div> 
+			   
+			   <?php }  } ?>
+			   
+			   
                </div>
             </div>
          </div>
