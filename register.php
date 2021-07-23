@@ -10,6 +10,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
 {
     if (isset($_POST['register']))
     {
+		if ($_SESSION['token']==$_POST['token']) {
+		
 
         if (empty($_POST['username']))
         {
@@ -72,6 +74,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
 
             }
         }
+		unset($_SESSION['token']);
+	}
+	else { $return = '<div class="alert-red"><i class="alert-icon fa fa-exclamation-circle"></i>Invalid Session Token!</div>'; }
     }
 }
 
@@ -91,9 +96,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
             <label for="username">Username</label>
             <input type="text" id="username" name="username"><br>
             <label for="password">Password</label>
-            <input type="text" id="password" name="password"><br>
+            <input type="password" id="password" name="password"><br>
 			<label for="email">Email</label>
             <input type="text" id="email" name="email"><br>
+			<input type="hidden" name="token" value="<?php echo generatetoken(); ?>"/>
             <input type="submit" name="register" value="Register"></button>
         </form>
                </div>
