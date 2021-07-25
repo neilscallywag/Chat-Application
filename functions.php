@@ -28,5 +28,45 @@ try {
 	}
 
 
+function sendmessage($uid, $username, $message, $token, $x) {
+
+
+
+
+if(isset($message)){
+if(isset($token)){
+
+$sql = "INSERT INTO chat (uid, username, message, timestamp) VALUES (:uid, :username, :message, :time)";
+                $stmt = $x->prepare($sql);
+                $stmt->bindValue(':uid', $uid);
+                $stmt->bindValue(':username', $username);
+                $stmt->bindValue(':message', $message);
+				$stmt->bindValue(':time', date('Y-m-d H:i:s'));
+                $stmt->execute();
+}
+
+}
+
+
+	
+}
+
+function getmessages($x) {
+	
+		$sql = "select * from chat ORDER BY mid ASC;";
+			$stmt = $x->prepare($sql);
+   
+    $stmt->execute();
+    $result = $stmt->fetchall();
+	return $result;
+	
+	
+}
+
+function latestmessage() {
+	
+	
+}
+
 
 ?>

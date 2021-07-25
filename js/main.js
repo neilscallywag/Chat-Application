@@ -2,7 +2,51 @@ document.addEventListener(
 	'DOMContentLoaded',
 	function()
 	{
-		const a = document.getElementById('chat');
+		function refresh()
+    {
+        var div = $('#chatroom'),
+            divHtml = div.html();
+
+        div.html(divHtml);
+		console.log("test");
+    }
+
+    setInterval(function()
+    {
+        refresh()
+    }, 1000); 
+	 setInterval(function()
+    {
+        loadinitial()
+    }, 9000); 
+	setInterval(function()
+    {
+        loadnew()
+    }, 3000); 
+	
+	function loadinitial() {
+	$.getJSON( "getmessage.php", function( data ) {
+  $.each( data, function( key, val ) {
+	 
+  console.log(val);
+  });
+ 
+ 
+
+});
+	}
+	function loadnew() {
+	$.getJSON( "getmessage.php", function( data ) {
+	 
+  console.log(data[Object.keys(data).reverse()[0]]);
+  
+ 
+ 
+
+});
+	}
+		$('#chatroom').scrollTop($('#chatroom')[0].scrollHeight - $('#chatroom')[0].clientHeight);
+		const a = document.getElementById('chatroom');
 		a.style.cursor = 'grab';
 		let p = {
 			top: 0,

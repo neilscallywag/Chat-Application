@@ -1,35 +1,13 @@
 <?php 
 
 include("header.php");
-
-?>
-<?php 
-$sql = "select * from chat ORDER BY mid ASC;";
-			$stmt = $x->prepare($sql);
-   
-    $stmt->execute();
-    $result = $stmt->fetchall();
-
-
+$result = null;
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
 	if(isset($_POST['submit'])){
-	
-if(isset($_POST['message_box_beta'])){
-if(isset($_POST['token'])){
-$return = '<div class="alert-blue"><i class="alert-icon fa fa-exclamation-circle"></i>success</div>';
-echo($return);
-$sql = "INSERT INTO chat (uid, username, message, timestamp) VALUES (:uid, :username, :message, :time)";
-                $stmt = $x->prepare($sql);
-                $stmt->bindValue(':uid', $_SESSION['uid']);
-                $stmt->bindValue(':username', $_SESSION['username']);
-                $stmt->bindValue(':message', $_POST['message_box_beta']);
-				$stmt->bindValue(':time', date('Y-m-d H:i:s'));
-                 $stmt->execute();
-}
+ sendmessage($_SESSION["uid"], $_SESSION["username"], $_POST["message_box_beta"],$_POST["token"], $x);
+ 
+}}	
 
-}
-}
-}
 
 ?>
 
@@ -39,9 +17,10 @@ $sql = "INSERT INTO chat (uid, username, message, timestamp) VALUES (:uid, :user
                <p>
                   Simple Chat application
                </p>
-               <div id="chat" class="chat">
+               <div id="chatroom" class="chat">
 			   
 			   <?php
+			   $result = getmessages($x);
 			   foreach($result as $res) { 
 			   if(isset($_SESSION["uid"])) { 
 			   if($_SESSION["uid"] == $res['uid']){

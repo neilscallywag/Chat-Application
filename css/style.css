@@ -142,6 +142,7 @@ body {
 	font-weight: 300;
 }
 
+
 .chat {
 	display: flex;
 	flex-direction: column;
@@ -153,10 +154,13 @@ body {
 	overflow: auto;
 }
 
+
+#chatroom::-webkit-scrollbar {
+	width: 0px;
+}
 #chat::-webkit-scrollbar {
 	width: 0px;
 }
-
 .chat>div {
 	color: black;
 	flex: 0 0 auto;
@@ -323,6 +327,7 @@ form {
 
 input[type='text'],
 [type='email'],
+[type='password'],
 select,
 textarea {
 	background: none;
@@ -348,6 +353,7 @@ textarea {
 
 input[type='text']: focus,
 [type='email']: focus,
+[type='password']: focus,
 textarea: focus {
 	outline: none;
 	padding: 0 0 0.875em 0;
