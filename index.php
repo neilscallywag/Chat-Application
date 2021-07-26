@@ -1,11 +1,16 @@
 <?php 
 
 include("header.php");
-$result = null;
+$return = "Type your message here!";
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
 	if(isset($_POST['submit'])){
+		if($_POST['message_box_beta'] == null && empty($_FILES["image"]["name"])) {
+			$return = 'Please enter a message !';
+			
+		}
+		elseif($_POST['message_box_beta'] != null OR !empty($_FILES["image"]["name"])) {
  sendmessage($_SESSION["uid"], $_SESSION["username"], $_POST["message_box_beta"],$_POST["token"], $x);
- 
+		}
 }}	
 
 
@@ -76,8 +81,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 			<?php   if(isset($_SESSION["uid"])) { ?>
 			   <div class="input">
 			    <form action="index.php" method="post" style="display:contents">
-         <i class="fa fa-camera"></i><i class="fa fa-camera"></i>
-            <input placeholder="Type your message here!" type="text" id="message_box_beta" name="message_box_beta">
+				
+         <label style="margin-bottom: 0rem !important" for="file-input"><i class="fa fa-camera"></label></i><input id="file-input" style="display:none" type="file"  accept="image/*" name="image">
+            <input placeholder="<?php echo($return); ?>" type="text" id="message_box_beta" name="message_box_beta">
 			 <input type="hidden" name="token" value="123123"/>
             <input type="submit" name="submit" value="submit"></button>
         </form>

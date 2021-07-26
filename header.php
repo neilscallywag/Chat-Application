@@ -14,8 +14,9 @@ if(!isset($_SESSION["uid"])){
       <link rel="stylesheet" href="css/style.css">
       <link rel="stylesheet" href="css/normalize.css">
       <link rel="stylesheet" href="css/skeleton.css">
-      <script src="js/jquery-2.1.4.min.js"></script>
+	  <script src="js/jquery-2.1.4.min.js"></script>
       <script src="js/main.js"></script>
+
       <meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, minimum-scale=1, user-scalable=no">
    </head>
    <body>
