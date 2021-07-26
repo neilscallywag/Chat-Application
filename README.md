@@ -25,3 +25,5 @@ Chat Application coded in PHP, CSS3 and JS
 * Smoother animations and transitions
 * Image Uploading and viewing
 * Emoticons (Using Hashmaps)
+* Reply a particular message
+
