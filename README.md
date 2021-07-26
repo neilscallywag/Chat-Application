@@ -21,7 +21,7 @@ Chat Application coded in PHP, CSS3 and JS
 
 ## Upcoming implementations
 * User to User Private messaging
-* End to End Encryption why public key (for chat group) and Public + Private key (for PM)
+* End to End Encryption with Symmetric (for chat group) and Asymmetric encryption methods (for PM)
 * Smoother animations and transitions
 * Image Uploading and viewing
 * Emoticons (Using Hashmaps)
