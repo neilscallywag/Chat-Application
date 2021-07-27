@@ -3,7 +3,7 @@
 include ("header.php");
 if (isset($_SESSION["uid"]))
 {
-    header("location: index.php");
+    redirect('index.php?type=1');	
 }
 $return = '<div class="alert-blue"><i class="alert-icon fa fa-exclamation-circle"></i>Enter the following details in order to register</div>';
 if ($_SERVER['REQUEST_METHOD'] === 'POST')

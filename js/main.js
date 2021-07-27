@@ -2,7 +2,7 @@ document.addEventListener(
   'DOMContentLoaded',
   function()
   {
-   
+
 	
 	$("input").change(function(e) {
 
@@ -19,6 +19,16 @@ document.addEventListener(
         $(".input").before(img);
     }
 });
+const inputField = document.querySelector("#message_box_beta");
+const sendBtn = document.querySelector(".a")
+inputField.focus();
+inputField.onkeyup = ()=>{
+    if(inputField.value != ""){
+        sendBtn.classList.add("active");
+    }else{
+        sendBtn.classList.remove("active");
+    }
+}
 
     function refresh()
     {
