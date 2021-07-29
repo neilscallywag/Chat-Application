@@ -2,7 +2,7 @@
 ## About The Project
 
 
-Chat Application coded in PHP, CSS3 and JS
+Chat Application coded in PHP, CSS3 and JS. This is just a project to learn and improve understanding on certain topics. This is not meant or suitable for production.
 
 ### Some Features
 * User to User PM via E2EE so that no two messages are the same
