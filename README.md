@@ -4,6 +4,17 @@
 
 Chat Application coded in PHP, CSS3 and JS
 
+### Some Features
+* User to User PM via E2EE so that no two messages are the same
+![image](https://user-images.githubusercontent.com/64523806/127499446-06125609-e870-40b9-9793-ad94ed5f11d0.png)
+![image](https://user-images.githubusercontent.com/64523806/127499503-a2d30101-c127-43ab-9c7e-52c28de217f9.png)
+
+
+* Group Chat
+![image](https://user-images.githubusercontent.com/64523806/127499011-71bc3e96-b562-468c-ada5-190841d0e6c1.png)
+
+
+
 ## Things i learned
 
 
@@ -13,6 +24,8 @@ Chat Application coded in PHP, CSS3 and JS
 * Server Side validation
 * Password Encryption 
 * SQL exploits
+* Token Generation
+* E2EE Encryption
 ### Computer Science
 * Dynamic Programming
 * Organisation of code
@@ -20,10 +33,10 @@ Chat Application coded in PHP, CSS3 and JS
 
 
 ## Upcoming implementations
-* User to User Private messaging
-* End to End Encryption with Symmetric (for chat group) and Asymmetric encryption methods (for PM)
+
 * Smoother animations and transitions
 * Image Uploading and viewing
 * Emoticons (Using Hashmaps)
 * Reply a particular message
+
 
