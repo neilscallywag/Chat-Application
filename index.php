@@ -47,6 +47,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
             sendmessage($_SESSION["uid"], $_SESSION["username"], $_POST["message_box_beta"], $_POST["token"], NULL, NULL, $x);
         }
     }
+	
+	elseif(isset($_POST['submitpm'])) {
+		
+        if ($_POST['message_box_beta'] == "" && empty($_FILES["img"]['tmp_name']))
+        {
+            $return = 'Please enter a message !';
+
+        }
+        elseif ($_POST['message_box_beta'] != "" or !empty($_FILES["img"]['tmp_name']))
+        {
+
+            sendpmessage($_SESSION["uid"], $_GET['uid'], $_POST["message_box_beta"], $_POST["token"], $x);
+        }
+	}
 }
 
 ?>
@@ -130,19 +144,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
 case '2': ?>
 
 <?php 
-
+              if($_SESSION['uid'] == $_GET['uid']) {
+				  redirect('index.php?type=1');
+			  }
+			  if(checkifexist($_GET['uid'],$x) != 0) {
 			  $result = getprivatemsg($_SESSION['uid'],$_GET['uid'],$x);
 			  $res = count($result);
-			  echo($res);
+			 
 			  if($res > 0) {
 			   foreach($result as $r) {  
+			    $fk = uidToname($r['f'], 'k', $x);
+			$tk = uidToname($r['t'], 'k', $x);
+			$e = secured_decrypt($r['message'],$fk,$tk);
                                 if($r['f'] == $_SESSION['uid']) { ?>  
 								
 								
 								<div>
 								<div class="messagecontainer self" style="--user-color: #F4A651">
                         
-                        <span class="message"><?php echo($r['message']); ?></span>
+                        <span class="message"><?php echo($e); ?></span>
                      </div> </div>
 
 
@@ -153,10 +173,10 @@ case '2': ?>
                      <div class="messagecontainer" style="--user-color: #F4A651">
                         <span class="meta">
                         
-                        <span class="user"><?php echo(uidToname($_GET['uid'],$x)); ?></span>
+                        <span class="user"><?php $item='username'; echo(uidToname($_GET['uid'],$item,$x)); ?></span>
                         <i class="metaBG"></i>
                         </span>
-                        <span class="message"><?php echo($r['message']); ?></span>
+                        <span class="message"><?php echo($e); ?></span>
                      </div> </div>
 			   
 			   <?php
@@ -165,6 +185,8 @@ case '2': ?>
 			  }
 			  }
 			  else { echo('<div class="alert-yellow"><i class="alert-icon fa fa-exclamation-circle"></i>There is no conversation yet!</div>'); }
+			  
+			  } else { redirect('index.php?type=1'); }
 
 ?>
 
@@ -185,22 +207,22 @@ case '2': ?>
 
 
 
-
-
-
-			   <div class="input">
-			    <form action="index.php" method="post" id="sendmsg" style="display:contents">
+</div>
+	   <div class="input">
+			    <form action="index.php?type=2&uid=<?php echo($_GET['uid']); ?>" method="post" id="sendpmsg" style="display:contents">
 				
          <label style="margin-bottom: 0rem !important" for="file-input"><i class="fa fa-camera"></label></i><input id="file-input" style="display:none" type="file"  accept="image/*" name="img">
             <input placeholder="<?php echo($return); ?>" type="text" id="message_box_beta" name="message_box_beta">
 			 <input type="hidden" name="token" value="<?php echo generatetoken(); ?>"/>
-            <input type="submit" name="submit" value="submit"></button>
+            <input type="submit" name="submitpm" value="submit"></button>
         </form>
-</div> <?php  	break; 	
+</div> 
+
+		<?php  	break; 	
 default:
 		redirect('index.php?type=1');
 			   }?>
-            </div>
+            
          </div>
       </div>
  <?php 

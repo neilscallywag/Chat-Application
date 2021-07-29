@@ -30,6 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
             $username = trim($_POST['username']);
             $email = trim($_POST['email']);
             $password = trim($_POST['password']);
+			$k = generatekey();
 
             $sql = "SELECT COUNT(username) AS num FROM users WHERE username = :username";
             $stmt = $x->prepare($sql);
@@ -61,15 +62,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
             else
             {
                 $passwordHash = md5(sha1(trim($password)));
-                $sql = "INSERT INTO users (username, password, email) VALUES (:username, :password, :email)";
+                $sql = "INSERT INTO users (username, password, email, k) VALUES (:username, :password, :email, :k)";
                 $stmt = $x->prepare($sql);
                 $stmt->bindValue(':username', $username);
                 $stmt->bindValue(':password', $passwordHash);
                 $stmt->bindValue(':email', $email);
+				$stmt->bindValue(':k', $k);
                 $result = $stmt->execute();
                 if ($result)
                 {
                     $return = '<div class="alert-green"><i class="alert-icon fa fa-exclamation-circle"></i>Resgistered successfully!</div>';
+					redirect('login.php');
                 }
 
             }
