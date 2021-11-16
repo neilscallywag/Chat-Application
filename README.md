@@ -4,6 +4,9 @@
 
 Chat Application coded in PHP, CSS3 and JS. This is just a project to learn and improve understanding on certain topics. This is not meant or suitable for production.
 
+## Database relations
+![image](https://user-images.githubusercontent.com/64523806/141974690-7bbc8dbd-98fc-4255-a2a9-886351255fc3.png)
+
 ### Some Features
 * User to User PM via E2EE so that no two messages are the same
 ![image](https://user-images.githubusercontent.com/64523806/127499446-06125609-e870-40b9-9793-ad94ed5f11d0.png)
